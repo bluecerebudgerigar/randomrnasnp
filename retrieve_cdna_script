@@ -20,4 +20,7 @@ for sequences in sequence_ids:
         print "Invalid response: ", resp.status
         sys.exit()
  
-    print content
+    handle = open("fasta_seq.fa", "a")
+    handle.write(content)
+    handle.close()
+    
