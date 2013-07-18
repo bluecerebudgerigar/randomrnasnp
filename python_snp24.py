@@ -32,9 +32,10 @@ pwd = os.path.dirname(os.path.realpath(__file__))
 snp_input_list   = []
 snp_input_value  = ""
 score            = 0
-command          = ["RNAsnp", "-f","test_fasta","-s","test_snp","-m","2"]
+command          = ["RNAsnp", "-f",pwd + "/test_fasta","-s",pwd + "/test_snp","-m","2"]
 quick_mode_score = float(iterations - transcripts_cutoff)
-sequence_length = 0
+sequence_length  = 0
+
 
 ### random_snps is a function that look at choose a
 def random_snps(cycle_number):
@@ -73,14 +74,12 @@ def test_p(value):
 
 def write_file(object_name, file_name):
     file_path=pwd + file_name
-    print file_path
     handle = open(file_path, "w+")    
     handle.write(object_name)
     handle.close()
     
 def results_file(type_results, delim):
     results_path= pwd + "/results.txt"
-    print results_path
     handle = open(results_path, "a")
     handle.write(str(type_results) + delim)
     handle.close()
@@ -103,6 +102,7 @@ for keys in record_dict:
         hits     = 0
         pos_hits = 0
         snp_list = []
+
         while n < iterations:
             snp_input = random_snps(i)
             if snp_input not in snp_list:
