@@ -19,7 +19,7 @@ for option, argument in opts:
         iterations     = int(argument)
     elif option in ("-p", "--pvalue"):
         p_value_cutoff = float(argument)
-    elif option in ("-c", "-cutoff"):
+    elif option in ("-c", "--cutoff"):
         transcripts_cutoff = float(argument)
     elif option in ("-q", "--quick"):
         quick_mode = argument  
